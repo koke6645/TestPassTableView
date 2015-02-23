@@ -16,6 +16,7 @@
 		8B25BD251A9A848B008A82B1 /* ListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B25BD241A9A848B008A82B1 /* ListTableViewController.swift */; };
 		8B25BD271A9A84B2008A82B1 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B25BD261A9A84B2008A82B1 /* DetailViewController.swift */; };
 		8B25BD291A9A855A008A82B1 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B25BD281A9A855A008A82B1 /* FirstViewController.swift */; };
+		8B8723B01A9AAD8400C0CF0A /* FilterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8723AF1A9AAD8400C0CF0A /* FilterTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +43,7 @@
 		8B25BD241A9A848B008A82B1 /* ListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListTableViewController.swift; sourceTree = "<group>"; };
 		8B25BD261A9A84B2008A82B1 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		8B25BD281A9A855A008A82B1 /* FirstViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
+		8B8723AF1A9AAD8400C0CF0A /* FilterTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +91,7 @@
 				8B25BD061A9A821C008A82B1 /* Main.storyboard */,
 				8B25BD221A9A8434008A82B1 /* RouteTableViewController.swift */,
 				8B25BD241A9A848B008A82B1 /* ListTableViewController.swift */,
+				8B8723AF1A9AAD8400C0CF0A /* FilterTableViewController.swift */,
 				8B25BD091A9A821C008A82B1 /* Images.xcassets */,
 				8B25BD0B1A9A821C008A82B1 /* LaunchScreen.xib */,
 				8B25BD001A9A821C008A82B1 /* Supporting Files */,
@@ -222,6 +225,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8B25BD291A9A855A008A82B1 /* FirstViewController.swift in Sources */,
+				8B8723B01A9AAD8400C0CF0A /* FilterTableViewController.swift in Sources */,
 				8B25BD031A9A821C008A82B1 /* AppDelegate.swift in Sources */,
 				8B25BD271A9A84B2008A82B1 /* DetailViewController.swift in Sources */,
 				8B25BD231A9A8434008A82B1 /* RouteTableViewController.swift in Sources */,
@@ -417,6 +421,7 @@
 				8B25BD1E1A9A821C008A82B1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8B25BD1F1A9A821C008A82B1 /* Build configuration list for PBXNativeTarget "TestPassTableViewTests" */ = {
 			isa = XCConfigurationList;
@@ -425,6 +430,7 @@
 				8B25BD211A9A821C008A82B1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

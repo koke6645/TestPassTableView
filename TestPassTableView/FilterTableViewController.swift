@@ -1,5 +1,5 @@
 //
-//  ListTableViewController.swift
+//  FilterTableViewController.swift
 //  TestPassTableView
 //
 //  Created by Red_iMac on 2/22/15.
@@ -8,39 +8,8 @@
 
 import UIKit
 
-class ListTableViewController: UITableViewController {
+class FilterTableViewController: UITableViewController {
 
-    var attractions = [
-        ("title: 1",1),
-        ("title: 2",2),
-        ("title: 3",3),
-        ("title: 4",4),
-        ("title: 5",5),
-        ("title: 6",6),
-        ("title: 7",7),
-        ("title: 8",8),
-        ("title: 9",9),
-        ("title: 10",10),
-        ("title: 11",11),
-        ("title: 12",12),
-        ("title: 13",13),
-        ("title: 14",14),
-        ("title: 15",15),
-        ("title: 16",16),
-        ("title: 17",17),
-        ("title: 18",18),
-        ("title: 19",19),
-        ("title: 20",20),
-        ("title: 21",21),
-        ("title: 22",22),
-        ("title: 23",23),
-        ("title: 24",24),
-        ("title: 25",25),
-        ("title: 26",26),
-        ("title: 27",27),
-        ("title: 28",28),
-        ("title: 29",29)]
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -61,23 +30,24 @@ class ListTableViewController: UITableViewController {
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Potentially incomplete method implementation.
         // Return the number of sections.
-        return 1
+        return 0
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete method implementation.
         // Return the number of rows in the section.
-        return attractions.count
+        return 0
     }
 
+    /*
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("attractionCell", forIndexPath: indexPath) as UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath) as UITableViewCell
 
         // Configure the cell...
-        let (title,id) = attractions[indexPath.row]
-        cell.textLabel?.text = title
+
         return cell
     }
+    */
 
     /*
     // Override to support conditional editing of the table view.

@@ -52,13 +52,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="routeCell" id="QvA-ye-h8Q">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="routeCell" id="QvA-ye-h8Q">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="QvA-ye-h8Q" id="r1E-da-Hr0">
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="lvr-Jz-3kN" kind="show" id="0wp-SE-ZSa"/>
+                                    <segue destination="lvr-Jz-3kN" kind="show" identifier="showAttractions" id="0wp-SE-ZSa"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -67,7 +67,13 @@
                             <outlet property="delegate" destination="bFy-BF-d9V" id="Jch-lw-Yyp"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Route" id="WsR-oZ-c5G"/>
+                    <navigationItem key="navigationItem" title="Route" id="WsR-oZ-c5G">
+                        <barButtonItem key="rightBarButtonItem" title="Filter" id="vTV-vV-OCR">
+                            <connections>
+                                <segue destination="jwD-nU-clO" kind="show" identifier="routeFilter" id="T1M-Sm-lIm"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q6c-Nl-iOG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -97,11 +103,44 @@
                             <outlet property="delegate" destination="lvr-Jz-3kN" id="ekq-5Z-XeO"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="List" id="VZH-dX-c04"/>
+                    <navigationItem key="navigationItem" title="List" id="VZH-dX-c04">
+                        <barButtonItem key="rightBarButtonItem" title="Filter" id="xid-l6-CZS">
+                            <connections>
+                                <segue destination="jwD-nU-clO" kind="show" identifier="attractionFilter" id="aWY-5e-Yda"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C3E-eK-OZT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1889" y="1383"/>
+        </scene>
+        <!--Filter-->
+        <scene sceneID="CX9-VE-TTt">
+            <objects>
+                <tableViewController id="jwD-nU-clO" customClass="FilterTableViewController" customModule="TestPassTableView" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="kbc-W5-EK1">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Lb4-7I-epd">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Lb4-7I-epd" id="rCh-Bl-6DM">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="jwD-nU-clO" id="Ho2-CQ-Pd0"/>
+                            <outlet property="delegate" destination="jwD-nU-clO" id="ZSa-Sj-DKx"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Filter" id="vPJ-tr-EFX"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gMT-26-LUM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2965" y="429"/>
         </scene>
         <!--Detail-->
         <scene sceneID="HB3-7z-SQG">
@@ -142,6 +181,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="55Y-nu-J7h"/>
+        <segue reference="T1M-Sm-lIm"/>
+        <segue reference="0wp-SE-ZSa"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -27,10 +27,7 @@ class RouteTableViewController: UITableViewController {
             ("route: 9",9),
             ("route: 10",10),
             ("route: 11",11),
-            ("route: 12",12),
-            ("route: 13",13),
-            ("route: 14",14),
-            ("route: 15",15)]
+            ("route: 12",12)]
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -108,20 +105,42 @@ class RouteTableViewController: UITableViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using [segue destinationViewController].
         // Pass the selected object to the new view controller.
+        if segue.identifier == "routeFilter" {
+            
+        } else if segue.identifier == "showAttractions" {
+            if let indexPath = self.tableView.indexPathForSelectedRow() {
+                let listScene = segue.destinationViewController as ListTableViewController
+                let attractionList = [
+                    ("title: 1",1),
+                    ("title: 8",8),
+                    ("title: 7",7),
+                    ("title: 5",5),
+                    ("title: 15",15),
+                    ("title: 26",26),
+                    ("title: 27",27),
+                    ("title: 12",12),
+                    ("title: 20",20)]
+                listScene.attractions = attractionList
+            }
+        }
+        
+        /*
         var listScene = segue.destinationViewController as ListTableViewController
         if let indexPath = self.tableView.indexPathForSelectedRow() {
             let attractionList = [
-                ("title: 21",21),
-                ("title: 22",22),
-                ("title: 23",23),
-                ("title: 24",24),
-                ("title: 25",25),
+                ("title: 1",1),
+                ("title: 8",8),
+                ("title: 7",7),
+                ("title: 5",5),
+                ("title: 15",15),
                 ("title: 26",26),
                 ("title: 27",27),
-                ("title: 28",28),
-                ("title: 29",29)]
+                ("title: 12",12),
+                ("title: 20",20)]
             listScene.attractions = attractionList
         }
+        */
+        
     }
 
 }
