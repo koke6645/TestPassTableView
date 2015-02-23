@@ -133,7 +133,19 @@ class FilterTableViewController: UITableViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using [segue destinationViewController].
         // Pass the selected object to the new view controller.
+        if segue.identifier == "routeFilter" {
+            let routeScene = segue.destinationViewController as RouteTableViewController
+            let routes = [
+                ("route: 1",1),
+                ("route: 2",2),
+                ("route: 5",5),
+                ("route: 7",7),
+                ("route: 9",9),
+                ("route: 11",11),
+                ("route: 12",12)]
+            routeScene.routes = routes
+        }
     }
     */
-
+    
 }
