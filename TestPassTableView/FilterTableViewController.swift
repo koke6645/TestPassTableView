@@ -11,7 +11,7 @@ import UIKit
 class FilterTableViewController: UITableViewController {
 
     var categories : [String]?
-    var tags : [(String,Bool)] = []
+    var tags : [(String,Bool)]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,7 +64,7 @@ class FilterTableViewController: UITableViewController {
         if section == 0 {
             return categories!.count
         } else {
-            return tags.count
+            return tags!.count
         }
     }
 
@@ -77,7 +77,7 @@ class FilterTableViewController: UITableViewController {
             return categoryCell
         } else {
             let tagCell = tableView.dequeueReusableCellWithIdentifier("tagCell", forIndexPath: indexPath) as UITableViewCell
-            let (title,select) = tags[indexPath.row]
+            let (title,select) = tags![indexPath.row]
             tagCell.textLabel?.text = title
             if select {
                 tagCell.accessoryType = UITableViewCellAccessoryType.Checkmark
@@ -102,8 +102,9 @@ class FilterTableViewController: UITableViewController {
             /*
             tableView.cellForRowAtIndexPath(indexPath)?.accessoryType = UITableViewCellAccessoryType.None
             */
-            let (title,select) = tags[indexPath.row]
-            tags[indexPath.row] = (title,!select)
+            tags![indexPath.row]
+            let (title,select) = tags![indexPath.row]
+            tags![indexPath.row] = (title,!select)
             tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.None)
         }
     }
