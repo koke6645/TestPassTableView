@@ -11,7 +11,7 @@ import UIKit
 class FilterTableViewController: UITableViewController {
 
     var categories : [String]?
-    var tags : [String]?
+    var tags : [(String,Bool)] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,19 +24,19 @@ class FilterTableViewController: UITableViewController {
         "cat: 5"]
         
         tags = [
-        "Tag: 1",
-        "Tag: 2",
-        "Tag: 3",
-        "Tag: 4",
-        "Tag: 5",
-        "Tag: 6",
-        "Tag: 7",
-        "Tag: 8",
-        "Tag: 9",
-        "Tag: 10",
-        "Tag: 11",
-        "Tag: 12",
-        "Tag: 13"]
+        ("Tag: 1",true),
+        ("Tag: 2",true),
+        ("Tag: 3",true),
+        ("Tag: 4",true),
+        ("Tag: 5",true),
+        ("Tag: 6",true),
+        ("Tag: 7",true),
+        ("Tag: 8",true),
+        ("Tag: 9",true),
+        ("Tag: 10",true),
+        ("Tag: 11",true),
+        ("Tag: 12",true),
+        ("Tag: 13",true)]
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -64,7 +64,7 @@ class FilterTableViewController: UITableViewController {
         if section == 0 {
             return categories!.count
         } else {
-            return tags!.count
+            return tags.count
         }
     }
 
@@ -77,8 +77,13 @@ class FilterTableViewController: UITableViewController {
             return categoryCell
         } else {
             let tagCell = tableView.dequeueReusableCellWithIdentifier("tagCell", forIndexPath: indexPath) as UITableViewCell
-            let tag = tags![indexPath.row]
-            tagCell.textLabel?.text = tag
+            let (title,select) = tags[indexPath.row]
+            tagCell.textLabel?.text = title
+            if select {
+                tagCell.accessoryType = UITableViewCellAccessoryType.Checkmark
+            } else {
+                tagCell.accessoryType = UITableViewCellAccessoryType.None
+            }
             return tagCell
         }
     }
@@ -88,6 +93,18 @@ class FilterTableViewController: UITableViewController {
             return "Categories"
         } else {
             return "Tags"
+        }
+    }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        if indexPath.section == 1 {
+            println("row \(indexPath)")
+            /*
+            tableView.cellForRowAtIndexPath(indexPath)?.accessoryType = UITableViewCellAccessoryType.None
+            */
+            let (title,select) = tags[indexPath.row]
+            tags[indexPath.row] = (title,!select)
+            tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.None)
         }
     }
     
