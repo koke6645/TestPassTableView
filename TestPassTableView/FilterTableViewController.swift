@@ -102,7 +102,6 @@ class FilterTableViewController: UITableViewController {
             /*
             tableView.cellForRowAtIndexPath(indexPath)?.accessoryType = UITableViewCellAccessoryType.None
             */
-            tags![indexPath.row]
             let (title,select) = tags![indexPath.row]
             tags![indexPath.row] = (title,!select)
             tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.None)
