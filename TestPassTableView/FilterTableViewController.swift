@@ -10,18 +10,18 @@ import UIKit
 
 class FilterTableViewController: UITableViewController {
 
-    var categories : [String]?
+    var categories : [(String,Bool)]?
     var tags : [(String,Bool)]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         categories = [
-        "Cat: 1",
-        "Cat: 2",
-        "Cat: 3",
-        "Cat: 4",
-        "cat: 5"]
+        ("Cat: 1",true),
+        ("Cat: 2",true),
+        ("Cat: 3",true),
+        ("Cat: 4",true),
+        ("cat: 5",true)]
         
         tags = [
         ("Tag: 1",true),
@@ -69,22 +69,26 @@ class FilterTableViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as UITableViewCell
 
         if indexPath.section == 0 {
-            let categoryCell = tableView.dequeueReusableCellWithIdentifier("categoryCell", forIndexPath: indexPath) as UITableViewCell
-            let category = categories![indexPath.row]
-            categoryCell.textLabel?.text = category
-            return categoryCell
-        } else {
-            let tagCell = tableView.dequeueReusableCellWithIdentifier("tagCell", forIndexPath: indexPath) as UITableViewCell
-            let (title,select) = tags![indexPath.row]
-            tagCell.textLabel?.text = title
+            let (title,select) = categories![indexPath.row]
+            cell.textLabel?.text = title
             if select {
-                tagCell.accessoryType = UITableViewCellAccessoryType.Checkmark
+                cell.accessoryType = UITableViewCellAccessoryType.Checkmark
             } else {
-                tagCell.accessoryType = UITableViewCellAccessoryType.None
+                cell.accessoryType = UITableViewCellAccessoryType.None
             }
-            return tagCell
+            return cell
+        } else {
+            let (title,select) = tags![indexPath.row]
+            cell.textLabel?.text = title
+            if select {
+                cell.accessoryType = UITableViewCellAccessoryType.Checkmark
+            } else {
+                cell.accessoryType = UITableViewCellAccessoryType.None
+            }
+            return cell
         }
     }
 
@@ -97,15 +101,20 @@ class FilterTableViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        if indexPath.section == 1 {
-            println("row \(indexPath)")
-            /*
-            tableView.cellForRowAtIndexPath(indexPath)?.accessoryType = UITableViewCellAccessoryType.None
-            */
+        println("row \(indexPath)")
+        /*
+        tableView.cellForRowAtIndexPath(indexPath)?.accessoryType = UITableViewCellAccessoryType.None
+        */
+        if indexPath.section == 0 {
+            let (title,select) = categories![indexPath.row]
+            categories![indexPath.row] = (title,!select)
+            tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.None)
+        } else {
             let (title,select) = tags![indexPath.row]
             tags![indexPath.row] = (title,!select)
             tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.None)
         }
+
     }
     
     /*
@@ -150,18 +159,6 @@ class FilterTableViewController: UITableViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using [segue destinationViewController].
         // Pass the selected object to the new view controller.
-        if segue.identifier == "routeFilter" {
-            let routeScene = segue.destinationViewController as RouteTableViewController
-            let routes = [
-                ("route: 1",1),
-                ("route: 2",2),
-                ("route: 5",5),
-                ("route: 7",7),
-                ("route: 9",9),
-                ("route: 11",11),
-                ("route: 12",12)]
-            routeScene.routes = routes
-        }
     }
     */
     
